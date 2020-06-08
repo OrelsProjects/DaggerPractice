@@ -2,17 +2,19 @@ package com.example.daggerpractice.di
 
 import android.app.Application
 import com.example.daggerpractice.BaseApplication
-import com.example.daggerpractice.MainActivity
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjector
 import dagger.android.support.AndroidSupportInjectionModule
+import javax.inject.Singleton
 
+@Singleton//This annotation means that everything that has that annotation will be alive as long as the AppComponent lives, and will have 1  instance
 @Component(
     modules = [
         AndroidSupportInjectionModule::class,/*Only need to be declared once, in the AppComponent*/
         ActivityBuildersModule::class,
-        AppModule::class
+        AppModule::class,
+        ViewModelFactoryModule::class
     ]
 
 )
